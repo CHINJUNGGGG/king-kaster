@@ -16,7 +16,12 @@
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.2",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "v-owl-carousel": "^1.0.8",
+    "vue-birth-datepicker": "^0.2.8",
+    "vue-owl-carousel": "^2.0.3",
+    "vue-scroll": "^2.1.13",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
