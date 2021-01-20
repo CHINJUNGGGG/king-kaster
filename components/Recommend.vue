@@ -1,186 +1,142 @@
 <template>
-  <div id="Recommend">
-    <div class="row" style="width: 100%">
-      <div class="col-lg-12 bg-rc">
-        <div class="row" style="width: 100%; padding-left: 15px">
-          <div class="col-lg-12">
-            <label class="rc-fontHeader h2">ช่องที่แนะนำ</label>
-            <div style="padding: 0 50px 0 60px">
-              <no-ssr>
-                <carousel
-                  :autoplay="false"
-                  :loop="false"
-                  :nav="false"
-                  :dots="false"
-                  :responsive="{
-                    0: { items: 1, nav: false },
-                    600: { items: 3, nav: false },
-                    1200: { items: 4, nav: false },
-                    1900: { items: 5, nav: false },
-                  }"
-                  @changed="changed"
-                  @updated="updated"
-                >
-                  <div style="padding: 0 30px 0 10px">
-                    <div class="row" style="padding-left: 7px">
-                      <div class="col-lg-12 mb-2">
-                        <img
-                          width="100%"
-                          src="../assets/image/logo/gaming.png"
-                        />
-                        <div class="rc-header h1">Game</div>
-                      </div>
+  <div id="Recommend" class="bg-rc">
+    <div class="row" style="width: 100%; padding: 0 60px">
+      <div class="col-lg-12">
+        <div class="rc-fontHeader h2">ช่องที่แนะนำ</div>
+        <no-ssr>
+          <carousel
+            :autoplay="false"
+            :loop="false"
+            :nav="false"
+            :dots="false"
+            :responsive="{
+              0: { items: 1, nav: false },
+              600: { items: 3, nav: false },
+              1200: { items: 4, nav: false },
+              1900: { items: 5, nav: false },
+            }"
+            @changed="changed"
+            @updated="updated"
+          >
+            <div style="padding: 0 30px 0 10px">
+              <div class="row" style="padding-left: 7px">
+                <div class="col-lg-12 mb-2">
+                  <img width="100%" src="../assets/image/logo/gaming.png" />
+                  <div class="rc-header h1">Game</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" v-for="game in games" :key="game.id">
+                  <a href="#">
+                    <div style="padding: 4px 1.5px 2px 0">
+                      <img class="rc-img" :src="game.image" />
+                      <div class="rc-coverImg"></div>
+                      <div class="rc-name h5">{{ game.name }}</div>
+                      <label
+                        class="rc-ststusOnline"
+                        v-if="game.status != 1"
+                      ></label>
+                      <label class="rc-ststusOnline active" v-else></label>
                     </div>
-                    <div class="row">
-                      <div
-                        class="col-lg-6"
-                        v-for="game in games"
-                        :key="game.id"
-                      >
-                        <a href="#">
-                          <div style="padding: 4px 1.5px 2px 0">
-                            <img class="rc-img" :src="game.image" />
-                            <div class="rc-coverImg"></div>
-                            <div class="rc-name h5">{{ game.name }}</div>
-                            <label
-                              class="rc-ststusOnline"
-                              v-if="game.status != 1"
-                            ></label>
-                            <label
-                              class="rc-ststusOnline active"
-                              v-else
-                            ></label>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style="padding: 0 30px 0 10px">
-                    <div class="row" style="padding-left: 7px">
-                      <div class="col-lg-12 mb-2">
-                        <img
-                          width="100%"
-                          src="../assets/image/logo/music.png"
-                        />
-                        <div class="rc-header h1">Music</div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div
-                        class="col-lg-6"
-                        v-for="music in musics"
-                        :key="music.id"
-                      >
-                        <a href="#">
-                          <div style="padding: 4px 1.5px 2px 0">
-                            <img class="rc-img" :src="music.image" />
-                            <div class="rc-coverImg"></div>
-                            <div class="rc-name h5">{{ music.name }}</div>
-                            <label
-                              class="rc-ststusOnline"
-                              v-if="music.status != 1"
-                            ></label>
-                            <label
-                              class="rc-ststusOnline active"
-                              v-else
-                            ></label>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="padding: 0 30px 0 10px">
-                    <div class="row" style="padding-left: 7px">
-                      <div class="col-lg-12 mb-2">
-                        <img
-                          width="100%"
-                          src="../assets/image/logo/comedy.png"
-                        />
-                        <div class="rc-header h1">Comedy</div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div
-                        class="col-lg-6"
-                        v-for="comedy in comedys"
-                        :key="comedy.id"
-                      >
-                        <a href="#">
-                          <div style="padding: 4px 1.5px 2px 0">
-                            <img class="rc-img" :src="comedy.image" />
-                            <div class="rc-coverImg"></div>
-                            <div class="rc-name h5">{{ comedy.name }}</div>
-                            <label
-                              class="rc-ststusOnline"
-                              v-if="comedy.status != 1"
-                            ></label>
-                            <label
-                              class="rc-ststusOnline active"
-                              v-else
-                            ></label>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style="padding: 0 30px 0 10px">
-                    <div class="row" style="padding-left: 7px">
-                      <div class="col-lg-12 mb-2">
-                        <img width="100%" src="../assets/image/logo/food.png" />
-                        <div class="rc-header h1">Food</div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div
-                        class="col-lg-6"
-                        v-for="food in foods"
-                        :key="food.id"
-                      >
-                        <a href="#">
-                          <div style="padding: 4px 1.5px 2px 0">
-                            <img class="rc-img" :src="food.image" />
-                            <div class="rc-coverImg"></div>
-                            <div class="rc-name h5">{{ food.name }}</div>
-                            <label
-                              class="rc-ststusOnline"
-                              v-if="food.status != 1"
-                            ></label>
-                            <label
-                              class="rc-ststusOnline active"
-                              v-else
-                            ></label>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <template slot="prev"
-                    ><img class="prev" src="../assets/icon/arrowPrev.png"
-                  /></template>
-                  <template slot="next"
-                    ><img class="next" src="../assets/icon/arrowNext.png"
-                  /></template>
-                </carousel>
-              </no-ssr>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+
+            <div style="padding: 0 30px 0 10px">
+              <div class="row" style="padding-left: 7px">
+                <div class="col-lg-12 mb-2">
+                  <img width="100%" src="../assets/image/logo/music.png" />
+                  <div class="rc-header h1">Music</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" v-for="music in musics" :key="music.id">
+                  <a href="#">
+                    <div style="padding: 4px 1.5px 2px 0">
+                      <img class="rc-img" :src="music.image" />
+                      <div class="rc-coverImg"></div>
+                      <div class="rc-name h5">{{ music.name }}</div>
+                      <label
+                        class="rc-ststusOnline"
+                        v-if="music.status != 1"
+                      ></label>
+                      <label class="rc-ststusOnline active" v-else></label>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 0 30px 0 10px">
+              <div class="row" style="padding-left: 7px">
+                <div class="col-lg-12 mb-2">
+                  <img width="100%" src="../assets/image/logo/comedy.png" />
+                  <div class="rc-header h1">Comedy</div>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  class="col-lg-6"
+                  v-for="comedy in comedys"
+                  :key="comedy.id"
+                >
+                  <a href="#">
+                    <div style="padding: 4px 1.5px 2px 0">
+                      <img class="rc-img" :src="comedy.image" />
+                      <div class="rc-coverImg"></div>
+                      <div class="rc-name h5">{{ comedy.name }}</div>
+                      <label
+                        class="rc-ststusOnline"
+                        v-if="comedy.status != 1"
+                      ></label>
+                      <label class="rc-ststusOnline active" v-else></label>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding: 0 30px 0 10px">
+              <div class="row" style="padding-left: 7px">
+                <div class="col-lg-12 mb-2">
+                  <img width="100%" src="../assets/image/logo/food.png" />
+                  <div class="rc-header h1">Food</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" v-for="food in foods" :key="food.id">
+                  <a href="#">
+                    <div style="padding: 4px 1.5px 2px 0">
+                      <img class="rc-img" :src="food.image" />
+                      <div class="rc-coverImg"></div>
+                      <div class="rc-name h5">{{ food.name }}</div>
+                      <label
+                        class="rc-ststusOnline"
+                        v-if="food.status != 1"
+                      ></label>
+                      <label class="rc-ststusOnline active" v-else></label>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <template slot="prev"
+              ><img class="prev" src="../assets/icon/arrowPrev.png"
+            /></template>
+            <template slot="next"
+              ><img class="next" src="../assets/icon/arrowNext.png"
+            /></template>
+          </carousel>
+        </no-ssr>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import Vue from 'vue'
-// import OwlCarousel from 'v-owl-carousel'
-
-// Vue.component('carousel', OwlCarousel)
 export default {
   name: 'Recommend',
-  // components: { carousel },
   data() {
     return {
       games: [

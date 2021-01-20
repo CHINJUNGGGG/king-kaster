@@ -58,19 +58,21 @@
     .rc-fontHeader{
         font-family: 'kanitmedium';
         color: #fff;
-        margin: 26px 5px 20px 65px;
+        margin: 30px 0 10px 0;
     }
     .bg-Home{
         background-color: #141622;
     }
     .prev{
+        width: 30px;
+        height: 30px;
         background-color: #000000;
         opacity: 0.5;
         padding: 7px 10px;
         border-radius: 50px;
         position: absolute;
         top: 25px;
-        right: 100px;
+        right: 55px;
         z-index: 1;
         cursor: pointer;
     }
@@ -80,13 +82,15 @@
     }
 
     .next{
+        width: 30px;
+        height: 30px;
         background-color: #000000;
         opacity: 0.5;
         padding: 7px 10px;
         border-radius: 50px;
         position: absolute;
         top: 25px;
-        right: 65px;
+        right: 20px;
         z-index: 1;
         cursor: pointer;
     }
@@ -133,6 +137,7 @@
         font-family: 'kanitlight';
         color: #399cff;
         cursor: pointer;
+        margin: 31px 0 0 0;
     }
 
     .lv-bg{
@@ -144,7 +149,7 @@
         margin-top: 15px;
     }
 
-    .lv-video{
+    .lv-img{
         width: 100%;
         height: 272px;
         object-fit: cover;
@@ -202,7 +207,7 @@
         z-index: 1;
     }
 
-    .lv-videoName{
+    .lv-imgName{
         margin:35px 0 0 120px;
         width: 65%;
         height: 30px;
@@ -222,6 +227,47 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+    }
+
+    .arrowMore {
+        position: relative;
+        top: -25px;
+        left: 53px;
+    }
+    .bg-lv{
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        border-radius: 16px;
+        background-color: #24284b
+    }
+
+    .lv-img2{
+        height: 140px;
+        border-radius: 15px;
+    }
+
+    .lv-bth2{
+        background-color: #0c0d14d7;
+        font-size: 9px;
+        font-family: 'kanitregular';
+        color:#fff;
+        padding: 2px 8px 3px 21px;
+        width: 90px;
+        border-radius: 5px;
+        position: absolute;
+        top: 115px;
+        margin-left: 5px;
+    }
+
+    .lv-btnImg2{
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        position: absolute;
+        top:3px;
+        left:4px;
+        z-index: 2;
     }
 }
 

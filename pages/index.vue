@@ -5,17 +5,8 @@
     <ImageSlideHeader />
     <FooterHeader />
     <Recommend />
-
-    <!-- <div class="row">
-      <div class="col-lg-12 bg-Home">
-        <Interest />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12 bg-Home">
-        <LiveVideo />
-      </div>
-    </div> -->
+    <Interest />
+    <LiveVideo />
   </b-container>
 </template>
 

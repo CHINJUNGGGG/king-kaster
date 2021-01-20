@@ -1,19 +1,20 @@
 <template>
-  <div id="interest">
-    <div class="row" style="width: 100%; padding-left: 15px">
+  <div id="interest" class="bg-Home">
+    <div class="row" style="width: 100%; padding: 0 60px">
       <div class="col-lg-12">
         <div class="row" style="padding-left: 10px">
           <div class="col-lg-6">
-            <label class="rc-fontHeader h2 mr-3">หมวดหมู่ที่น่าสนใจ</label>
-            <a href="#">
-              <label class="it-fontMore h2 mr-2">More</label>
-              <div class="arrowMore">
-                <img src="../assets/icon/arrowMore.png" />
-              </div>
-            </a>
+            <div class="d-flex flex-row">
+              <div class="rc-fontHeader h2 mr-3 pl-1">หมวดหมู่ที่น่าสนใจ</div>
+              <a href="#">
+                <div class="it-fontMore h2 mr-2">More</div>
+                <img class="arrowMore" src="../assets/icon/arrowMore.png" />
+              </a>
+            </div>
           </div>
         </div>
-        <div style="padding: 0 50px 0 60px">
+
+        <no-ssr>
           <carousel
             :autoplay="false"
             :loop="false"
@@ -36,15 +37,15 @@
             >
               <div class="row">
                 <div class="col-lg-12">
-                  <a href="#">
-                    <div style="padding: 4px 1.5px 2px 0">
-                      <div class="bg-it"></div>
-                      <img class="it-img" :src="cat.image" />
-                      <div class="it-coverImg"></div>
-                      <div class="it-name h3">{{ cat.name }}</div>
-                      <div class="it-caster">{{ cat.video }}k Kasters</div>
-                    </div>
-                  </a>
+                  <!-- <a href="#"> -->
+                  <div class="item" style="padding: 4px 1.5px 2px 0">
+                    <div class="bg-it"></div>
+                    <img class="it-img" :src="cat.image" />
+                    <div class="it-coverImg"></div>
+                    <div class="it-name h3">{{ cat.name }}</div>
+                    <div class="it-caster">{{ cat.video }}k Kasters</div>
+                  </div>
+                  <!-- </a> -->
                 </div>
               </div>
             </div>
@@ -56,60 +57,53 @@
               ><img class="next" src="../assets/icon/arrowNext.png"
             /></template>
           </carousel>
-        </div>
+        </no-ssr>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import carousel from 'vue-owl-carousel'
 export default {
   name: 'Interest',
-  components: { carousel },
   data() {
     return {
+      isActive: false,
       category: [
         {
           id: '1',
           name: 'Film&Animation',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/film.png'),
           video: '123',
         },
         {
           id: '2',
           name: 'Autos&Vehicles',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/autos.png'),
           video: '234',
         },
         {
           id: '3',
           name: 'Pet&Animals',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/pet.png'),
           video: '345',
         },
         {
           id: '4',
           name: 'Sports',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/sports.png'),
           video: '456',
         },
         {
           id: '5',
           name: 'Travel&Event',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/travel.png'),
           video: '567',
         },
         {
           id: '6',
           name: 'People&Blogs',
-          image:
-            'https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282__340.jpg',
+          image: require('@/assets/image/category/people.png'),
           video: '789',
         },
       ],
@@ -164,13 +158,13 @@ export default {
 
   .it-coverImg {
     position: absolute;
-    top: 15px;
+    /* top: 15px; */
+    top: 100%;
     left: 0;
     right: 2px;
     bottom: 65px;
     z-index: 2;
     border-radius: 0 0 7px 7px;
-    opacity: 0.57;
     background-image: linear-gradient(
       to bottom,
       rgba(247, 32, 46, 0),
@@ -179,6 +173,13 @@ export default {
       rgba(245, 63, 74, 0.97),
       #f55540
     );
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .item:hover .it-coverImg {
+    top: 15px;
+    opacity: 0.6;
   }
 
   .it-name {
@@ -197,11 +198,6 @@ export default {
     bottom: 15px;
     left: 10px;
     z-index: 1;
-  }
-  .arrowMore {
-    position: absolute;
-    top: 28px;
-    left: 295px;
   }
 }
 </style>
