@@ -21,7 +21,7 @@
                 src="https://cdn.pixabay.com/photo/2020/03/01/00/55/compass-4891499__340.jpg"
               />
               <div class="lv-bth h6">
-                ผู้เข้าชม : 123K
+                ผู้เข้าชม : 123456789
                 <img class="lv-btnImg" src="../assets/icon/facebook.png" />
               </div>
               <img
@@ -39,57 +39,33 @@
           <div class="col-lg-7" style="color: #fff">
             <div class="row" style="padding: 15px 30px 0 30px">
               <div class="col-lg-12">
-                <VueSlickCarousel
-                  v-bind="setting"
-                  @init="onInitCarousel"
-                  style="padding: 0 20px 0 0"
-                >
-                  <div class="pr-2 pb-1" style="width: 100%">
+                <VueSlickCarousel v-bind="setting" style="padding: 0 20px 0 0">
+                  <div class="pr-2 pb-1" style="width: 100%; height: 100%">
                     <a href="#">
                       <div class="bg-lv">
                         <img
-                          width="100%"
                           class="lv-img2"
                           src="https://cdn.pixabay.com/photo/2019/10/29/10/07/man-4586576__340.jpg"
                         />
                         <div class="lv-bth2">
-                          ผู้เข้าชม : 123K
+                          ผู้เข้าชม : 123452365238
                           <img
                             class="lv-btnImg2"
                             src="../assets/icon/facebook.png"
                           />
                         </div>
+                        <img
+                          class="lv-imgProfile2 active"
+                          src="https://cdn.pixabay.com/photo/2019/10/29/10/07/man-4586576__340.jpg"
+                        />
+                        <div class="lv-btnLive2">Live</div>
+                        <div style="margin-bottom: 0" class="lv-imgName2">
+                          WE HIT 1,800 FOLLOWERS BOISssssssssssssssssssss
+                        </div>
+                        <div class="lv-casterName2">TheSquash</div>
                       </div>
                     </a>
                   </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-                  <div class="pr-2 pb-1">
-                    <div class="bg-lv"></div>
-                  </div>
-
-                  <div><h3>2</h3></div>
-                  <div><h3>3</h3></div>
-                  <div><h3>4</h3></div>
-                  <div><h3>5</h3></div>
-                  <div><h3>6</h3></div>
-                  <div><h3>7</h3></div>
-                  <div><h3>8</h3></div>
-                  <div><h3>9</h3></div>
-                  <div><h3>10</h3></div>
                   <template slot="prevArrow"
                     ><img class="prev2" src="../assets/icon/arrowPrev.png"
                   /></template>
